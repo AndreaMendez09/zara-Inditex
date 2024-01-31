@@ -11,7 +11,7 @@ public class ProductMapper {
 
     public ProductSizeDTO mapToTable(ProductSizeDTO product, ProductAvailabilityEvent event) {
         product.setAvailability(event.isAvailability());
-        product.setLastUpdated(event.getUpdate());
+        product.setLastUpdated(event.getUpdate().toLocalDateTime());
         return product;
     }
 }
