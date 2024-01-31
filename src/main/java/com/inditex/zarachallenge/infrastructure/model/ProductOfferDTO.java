@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Setter
 @Getter
@@ -16,10 +16,19 @@ public class ProductOfferDTO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private Timestamp validFrom;
+    private LocalDateTime validFrom;
     @Column
     private BigDecimal price;
     @Column
     private Long productId;
 
+    public ProductOfferDTO() {
+    }
+
+    public ProductOfferDTO(Long id, LocalDateTime validFrom, BigDecimal price, Long productId) {
+        this.id = id;
+        this.validFrom = validFrom;
+        this.price = price;
+        this.productId = productId;
+    }
 }

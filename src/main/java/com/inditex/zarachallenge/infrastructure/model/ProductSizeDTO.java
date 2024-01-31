@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Setter
 @Getter
@@ -19,11 +19,11 @@ public class ProductSizeDTO {
     @Column
     private boolean availability;
     @Column
-    private Timestamp lastUpdated;
+    private LocalDateTime lastUpdated;
     @Column
     private Long productId;
 
-    public ProductSizeDTO(Long sizeId, String size, boolean availability, Timestamp lastUpdated, Long productId) {
+    public ProductSizeDTO(Long sizeId, String size, boolean availability, LocalDateTime lastUpdated, Long productId) {
         this.sizeId = sizeId;
         this.size = size;
         this.availability = availability;
