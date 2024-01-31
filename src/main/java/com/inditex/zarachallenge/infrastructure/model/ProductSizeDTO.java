@@ -31,4 +31,6 @@ public class ProductSizeDTO {
         this.productId = productId;
     }
 
+    public ProductSizeDTO() {
+    }
 }
