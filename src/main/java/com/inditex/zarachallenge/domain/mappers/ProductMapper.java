@@ -1,7 +1,7 @@
 package com.inditex.zarachallenge.domain.mappers;
 
-import com.inditex.zarachallenge.domain.model.ProductAvailabilityEvent;
-import com.inditex.zarachallenge.domain.model.ProductSizeDTO;
+import com.inditex.zarachallenge.infrastructure.model.ProductAvailabilityEvent;
+import com.inditex.zarachallenge.infrastructure.model.ProductSizeDTO;
 import org.springframework.stereotype.Component;
 
 @Component

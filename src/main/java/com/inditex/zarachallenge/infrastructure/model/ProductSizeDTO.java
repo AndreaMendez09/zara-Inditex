@@ -1,4 +1,4 @@
-package com.inditex.zarachallenge.domain.model;
+package com.inditex.zarachallenge.infrastructure.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

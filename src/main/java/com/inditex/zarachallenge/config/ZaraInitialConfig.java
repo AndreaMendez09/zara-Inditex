@@ -25,7 +25,7 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.inditex.zarachallenge.infrastructure.KafkaListener;
-import com.inditex.zarachallenge.domain.model.ProductAvailabilityEvent;
+import com.inditex.zarachallenge.infrastructure.model.ProductAvailabilityEvent;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;

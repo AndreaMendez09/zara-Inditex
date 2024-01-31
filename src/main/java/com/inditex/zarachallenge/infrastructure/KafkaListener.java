@@ -3,8 +3,7 @@ package com.inditex.zarachallenge.infrastructure;
 import java.util.function.Consumer;
 
 import com.inditex.zarachallenge.app.service.ProductService;
-import com.inditex.zarachallenge.domain.model.ProductAvailabilityEvent;
-import com.inditex.zarachallenge.domain.repo.ProductRepository;
+import com.inditex.zarachallenge.infrastructure.model.ProductAvailabilityEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.messaging.Message;
