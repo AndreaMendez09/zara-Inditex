@@ -16,7 +16,7 @@ public class ProductOfferDTO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private LocalDateTime validFrom;
+    private String validFrom;
     @Column
     private BigDecimal price;
     @Column
@@ -25,7 +25,7 @@ public class ProductOfferDTO {
     public ProductOfferDTO() {
     }
 
-    public ProductOfferDTO(Long id, LocalDateTime validFrom, BigDecimal price, Long productId) {
+    public ProductOfferDTO(Long id, String validFrom, BigDecimal price, Long productId) {
         this.id = id;
         this.validFrom = validFrom;
         this.price = price;

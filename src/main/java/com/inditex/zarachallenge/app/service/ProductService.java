@@ -20,28 +20,30 @@ public class ProductService {
     @Value("${date}")
     private String date;
     @Autowired
-    private ProductSizeRepository productRepository;
+    private final ProductSizeRepository productRepository;
 
     @Autowired
-    private ProductOfferRepository productOfferRepository;
+    private final ProductOfferRepository productOfferRepository;
 
-    private ProductMapper productMapper;
+    private final ProductMapper productMapper;
+
+    public ProductService(ProductSizeRepository productRepository, ProductOfferRepository productOfferRepository, ProductMapper productMapper) {
+        this.productRepository = productRepository;
+        this.productOfferRepository = productOfferRepository;
+        this.productMapper = productMapper;
+    }
 
     public void updateStockAvailability(ProductAvailabilityEvent event) {
-        Optional<ProductSizeDTO> optionalProductSize = productRepository.findById(event.getSizeId());
-        ProductSizeDTO product;
-        if (optionalProductSize.isPresent()) {
-            product = productMapper.mapToTable(optionalProductSize.get(), event);
-            productRepository.save(product);
-        } else {
-            throw new EntityNotFoundException();
-        }
-
+        ProductSizeDTO optionalProductSize = productRepository.findById(event.getSizeId())
+                .orElseThrow(EntityNotFoundException::new);
+        ProductSizeDTO product = productMapper.mapToTable(optionalProductSize, event);
+        productRepository.save(product);
     }
 
     public List<?> getSimilarProducts(Long productId) {
         //Get similar products by price range
-        ProductOfferDTO toBuyProduct = productOfferRepository.findByProductIdAndValidFrom(productId, date);
+        ProductOfferDTO toBuyProduct = productOfferRepository.findByProductIdAndValidFrom(productId, date)
+                .orElseThrow(EntityNotFoundException::new);
 
         return productOfferRepository.findByPriceBetween(toBuyProduct.getPrice().subtract(BigDecimal.TEN), toBuyProduct.getPrice().add(BigDecimal.TEN));
     }

@@ -13,9 +13,13 @@ import org.springframework.stereotype.Component;
 public class KafkaListener {
 
 	@Autowired
-	private ProductService productService;
+	private final ProductService productService;
 
-	@Bean
+    public KafkaListener(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @Bean
 	public Consumer<Message<ProductAvailabilityEvent>> KafkaConsumer() {
 		return message -> {
 			ProductAvailabilityEvent event = message.getPayload();

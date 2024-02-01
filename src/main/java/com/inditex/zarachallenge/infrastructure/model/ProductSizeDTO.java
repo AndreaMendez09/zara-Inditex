@@ -19,11 +19,11 @@ public class ProductSizeDTO {
     @Column
     private boolean availability;
     @Column
-    private LocalDateTime lastUpdated;
+    private String lastUpdated;
     @Column
     private Long productId;
 
-    public ProductSizeDTO(Long sizeId, String size, boolean availability, LocalDateTime lastUpdated, Long productId) {
+    public ProductSizeDTO(Long sizeId, String size, boolean availability, String lastUpdated, Long productId) {
         this.sizeId = sizeId;
         this.size = size;
         this.availability = availability;
